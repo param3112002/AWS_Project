@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech with Amazon Polly</h1>
+    <form method="POST">
+        <label for="input_text">Text:</label>
+        <input type="text" id="input_text" name="input_text" required>
+        <br>
+        <label for="voice">Voice:</label>
+        <select id="voice" name="voice">
+            <option value="Joanna">Joanna</option>
+            <option value="Matthew">Matthew</option>
+            <!-- Add more voices as needed -->
+        </select>
+        <br>
+        <button type="submit">Convert to Speech</button>
+    </form>
+
+    
+        <h2>Generated Speech</h2>
+        <audio controls>
+            <source src="data:audio/mp3;base64,{{ audio_base64 }}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    
+</body>
+</html>
