@@ -2,29 +2,70 @@
 <html>
 <head>
     <title>Text to Speech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            font-size: 16px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 20px;
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Text to Speech with Amazon Polly</h1>
     <form method="POST">
         <label for="input_text">Text:</label>
-        <input type="text" id="input_text" name="input_text" required>
-        <br>
+        <textarea id="input_text" name="input_text" required></textarea>
+        
         <label for="voice">Voice:</label>
         <select id="voice" name="voice">
             <option value="Joanna">Joanna</option>
             <option value="Matthew">Matthew</option>
             <!-- Add more voices as needed -->
         </select>
-        <br>
+        
         <button type="submit">Convert to Speech</button>
     </form>
 
-    
+    {% if audio_base64 %}
         <h2>Generated Speech</h2>
         <audio controls>
             <source src="data:audio/mp3;base64,{{ audio_base64 }}" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
-    
+    {% endif %}
+
+    {% if error %}
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+    {% endif %}
 </body>
 </html>
