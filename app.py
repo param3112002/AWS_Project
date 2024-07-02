@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import os
-from your_module_name import do_synthesize_speech  # Update with the correct import path
+from polly_service import do_synthesize_speech  # Update with the correct import path
 
 app = Flask(__name__)
 
