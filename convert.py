@@ -6,7 +6,7 @@ import os
 import tempfile
 
 def do_synthesize_speech(input_text, voice_id='Joanna'):
-    polly = boto3.client(service_name='polly', region_name='us-east-1', use_ssl=True)
+    polly = boto3.client(service_name='polly', region_name='ca-central-1', use_ssl=True)
     
     try:
         # Request speech synthesis
